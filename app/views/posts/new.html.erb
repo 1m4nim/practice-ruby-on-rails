@@ -1,31 +1,6 @@
 <h1>新規記事を投稿</h1>
 
-<%= form_with(model: @post) do |form| %>
-  
-  <% if @post.errors.any? %>
-    <div style="color: red;">
-      <p>入力内容にエラーがあります:</p>
-      <ul>
-        <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render "form", post: @post %>
 
-  <div>
-    <%= form.label :title, "タイトル" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :content, "内容" %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div>
-    <%= form.submit "記事を投稿" %>
-  </div>
-<% end %>
-
+<hr>
 <%= link_to "一覧に戻る", posts_path %>

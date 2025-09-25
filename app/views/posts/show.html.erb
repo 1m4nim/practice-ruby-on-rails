@@ -7,4 +7,9 @@
 <p>投稿日時: <%= @post.created_at.strftime("%Y/%m/%d %H:%M") %></p>
 
 <hr>
+
+<%= link_to "記事を編集", edit_post_path(@post) %>
+
+<hr>
+
 <%= link_to "一覧に戻る", posts_path %>

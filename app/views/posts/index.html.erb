@@ -8,6 +8,21 @@
   <div>
     <h2><%= link_to post.title, post %></h2>
     <p>投稿日時: <%= post.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+    
+    <p>
+      <%= link_to "編集", edit_post_path(post) %>
+      
+      |
+      
+      <%= link_to "削除", post, 
+                  data: { 
+                    turbo_method: :delete, # ← この属性がDELETEリクエストに変換します
+                    turbo_confirm: "本当に「#{post.title}」を削除してもよろしいですか？" 
+                  },
+                  style: "color: red;"
+      %>
+    </p>
+    
   </div>
   <hr>
 <% end %>
