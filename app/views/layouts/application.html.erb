@@ -7,13 +7,20 @@
     <%= csrf_meta_tags %> 
     
     <%= csp_meta_tag %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
     
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "blog_style", "data-turbo-track": "reload" %>
 
     <script type="module" src="https://unpkg.com/@hotwired/turbo@8.0.0/dist/turbo.es2017-esm.js"></script>
     
   </head>
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

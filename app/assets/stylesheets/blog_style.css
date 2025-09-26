@@ -1,0 +1,114 @@
+/* app/assets/stylesheets/blog_style.css */
+
+/* ==================================== */
+/* 全体とフォント設定 */
+/* ==================================== */
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif !important; /* 強制適用 */
+    line-height: 1.6 !important;
+    padding: 30px !important;
+    background-color: #fcf8f9 !important; /* 淡いピンクの背景を強制適用 */
+    color: #333 !important;
+    text-align: center !important; /* 📝 全体のテキストを中央寄せ */
+}
+
+/* 📝 メインコンテンツブロックを中央に配置し、最大幅を設定 */
+.container {
+    max-width: 800px !important; 
+    margin-left: auto !important; 
+    margin-right: auto !important; 
+}
+
+
+/* ==================================== */
+/* メインコンテンツエリアの調整 */
+/* ==================================== */
+
+/* 🌸 h1 (ページタイトル)を可愛く調整 */
+h1 {
+    color: #e9638c !important; /* より鮮やかなピンク */
+    font-weight: 900 !important; /* さらに太く */
+    font-size: 2.8em !important; /* 大きく */
+    margin-bottom: 30px !important;
+    border-bottom: 3px dashed #f48fb1 !important; /* 点線にして可愛く */
+    padding-bottom: 15px !important;
+    text-shadow: 2px 2px 5px rgba(233, 99, 140, 0.3) !important; /* 柔らかい影 */
+}
+
+h1 + hr, .post-item + hr {
+    display: none !important;
+}
+
+
+/* ==================================== */
+/* 新規投稿ボタンのスタイル */
+/* ==================================== */
+a[href="/posts/new"] {
+    display: inline-block !important;
+    background-color: #f48fb1 !important;
+    color: white !important;
+    padding: 10px 15px !important;
+    border-radius: 20px !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    transition: background-color 0.2s !important;
+}
+
+a[href="/posts/new"]:hover {
+    background-color: #e9638c !important;
+}
+
+/* ==================================== */
+/* 記事一覧の各記事のスタイル（カードデザイン） */
+/* ==================================== */
+.post-item {
+    border: none !important;
+    padding: 30px !important; /* パディングを少し増やす */
+    margin-bottom: 30px !important; /* マージンを少し増やす */
+    border-radius: 20px !important; /* 角をさらに丸く */
+    background-color: #ffffff !important;
+    box-shadow: 0 6px 15px rgba(244, 143, 177, 0.25) !important; /* 影を少し強調 */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out !important;
+}
+
+.post-item:hover {
+    transform: translateY(-5px) !important; /* ホバー時の浮き上がりを大きく */
+    box-shadow: 0 10px 20px rgba(244, 143, 177, 0.4) !important; /* ホバー時の影をさらに強調 */
+}
+
+/* 🌸 記事タイトルリンクの色と装飾 */
+.post-item h2 a {
+    color: #8c57b7 !important;
+    text-decoration: none !important;
+    font-size: 1.8em !important; /* 少し大きく */
+    font-weight: 800 !important; /* 太く */
+    letter-spacing: 0.5px !important; 
+    transition: color 0.3s ease, transform 0.3s ease !important;
+}
+
+.post-item h2 a:hover {
+    color: #f48fb1 !important; /* ホバーでピンクに */
+    transform: scale(1.02) !important; /* 少し拡大 */
+}
+
+/* 🌸 投稿日時などのメタ情報のスタイル */
+.post-meta {
+    color: #d1c4e9 !important; /* より淡い紫色 */
+    font-size: 0.95em !important; 
+    margin-top: 10px !important; 
+    font-weight: 500 !important; 
+}
+
+/* 🌸 編集・削除リンクのスタイル */
+.post-item p a {
+    margin-right: 15px !important;
+    color: #ab47bc !important; 
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    transition: color 0.2s !important;
+}
+
+.post-item p a:hover {
+    color: #f48fb1 !important; /* ホバーでピンクに */
+    text-decoration: underline !important;
+}
