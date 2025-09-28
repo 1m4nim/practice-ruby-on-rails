@@ -1,51 +1,60 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
-  
+  # 【重要】
+  # 記事の作成、更新、削除アクションの前に、ユーザーがログインしているか確認します。
+  # ログインしていない場合、ログインページにリダイレクトされます。
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
+  # GET /posts
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all
+    # 記事一覧はログインしていなくても見られるようにします
   end
 
+  # GET /posts/1
   def show
+    @post = Post.find(params[:id])
   end
 
+  # GET /posts/new
   def new
     @post = Post.new
   end
 
+  # POST /posts
   def create
     @post = Post.new(post_params)
-
     if @post.save
-      redirect_to @post, notice: "記事が正常に投稿されました。"
+      redirect_to @post, notice: '記事が正常に作成されました。'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  # GET /posts/1/edit
   def edit
+    @post = Post.find(params[:id])
   end
 
+  # PATCH/PUT /posts/1
   def update
+    @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to @post, notice: "記事が正常に更新されました。"
+      redirect_to @post, notice: '記事が正常に更新されました。'
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
+  # DELETE /posts/1
   def destroy
-    @post.destroy! 
-    
-    redirect_to posts_url, notice: "記事「#{@post.title}」を削除しました。", status: :see_other
+    @post = Post.find(params[:id])
+    @post.destroy!
+    redirect_to posts_url, notice: '記事が正常に削除されました。', status: :see_other
   end
 
   private
 
-  def set_post
-    @post = Post.find(params[:id])
-  end
-
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :body) # 必要に応じてカラムを追加
   end
 end
